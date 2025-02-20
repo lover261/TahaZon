@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 20%;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>تسجيل الدخول</h2>
+    <input type="text" id="username" placeholder="أدخل اسم المستخدم" /><br>
+    <input type="password" id="password" placeholder="أدخل كلمة المرور" /><br>
+    <button onclick="login()">دخول</button>
+
+    <script>
+        function login() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            // التحقق من إذا كانت كلمة المرور صحيحة بالنسبة للمالك
+            var ownerPassword = "mMLLm";  // كلمة مرور المالك
+
+            // التحقق من كلمة المرور للمستخدم العادي
+            var storedPassword = localStorage.getItem(username);
+
+            if (username === "admin" && password === ownerPassword) {
+                // إذا كانت كلمة المرور الخاصة بالمالك صحيحة
+                alert("مرحبًا بالمالك!");
+                window.location.href = "owner-dashboard.html";  // توجيه إلى لوحة تحكم المالك
+            } else if (storedPassword && storedPassword === password) {
+                // إذا كانت كلمة المرور الخاصة بالمستخدم العادي صحيحة
+                alert("مرحبًا " + username);
+                window.location.href = "index.html";  // توجيه إلى الصفحة الرئيسية للمستخدم العادي
+            } else {
+                alert("اسم المستخدم أو كلمة المرور غير صحيحة!");
+            }
+        }
+    </script>
+
+</body>
+</html>
