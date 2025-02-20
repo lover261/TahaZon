@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة تحكم المالك</title>
+</head>
+<body>
+
+    <h1>مرحبًا بالمالك</h1>
+    <p>هذه هي لوحة التحكم الخاصة بك. يمكنك إضافة أو تعديل المنتجات، إدارة الطلبات، وغير ذلك.</p>
+
+    <button onclick="logout()">تسجيل الخروج</button>
+
+    <script>
+        function logout() {
+            // إزالة بيانات تسجيل الدخول من localStorage
+            localStorage.removeItem("userType");
+            window.location.href = "login.html";  // العودة إلى صفحة تسجيل الدخول
+        }
+    </script>
+
+</body>
+</html>
